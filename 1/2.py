@@ -23,6 +23,5 @@ def main():
     else:
         print("Неверный ввод.")
 
-
 if __name__ == '__main__':
     main()
