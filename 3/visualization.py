@@ -2,11 +2,11 @@ import pandas as pd
 import plotly.graph_objs as go
 import plotly.express as px
 
-DATA_NAME = 'Tesla'
+DATA_NAME = 'Google'
 
 
 def load_data():
-    return pd.read_csv('tesla.csv', sep=',')
+    return pd.read_csv('google.csv', sep=',')
 
 
 def task_1_2():
@@ -22,12 +22,12 @@ def task_3():
     data = load_data()
     # 3.1
     data = [go.Bar(
-        x=data['date'],
-        y=data['price']
+        x=data['Date'],
+        y=data['Close']
     )]
     fig = go.Figure(data=data)
     # 3.2
-    # ?????????????????????????????????
+    # idk what they want from me
     # 3.3
     fig.update_traces(marker=dict(line=dict(color='black', width=2)))
     fig.update_layout(
@@ -50,8 +50,8 @@ def task_4():
     print('\nTask #4')
     data = load_data()
     trace = go.Pie(
-        labels=data['date'],
-        values=data['price']
+        labels=data['Date'],
+        values=data['Close']
     )
     fig = go.Figure(data=trace)
     fig.update_layout(
@@ -66,7 +66,7 @@ def task_4():
 def task_5():
     print('\nTask #5')
     data = load_data()
-    fig = px.line(data, x="date", y="price", markers=True)
+    fig = px.line(data, x="Date", y="Close", markers=True)
     fig.update_layout(
         title=f'Price of {DATA_NAME}', title_font_size=20, title_x=0.5,
         xaxis_title='Date', xaxis_title_font_size=16, xaxis_tickfont_size=14,
