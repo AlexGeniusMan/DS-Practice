@@ -1,6 +1,9 @@
 import pandas as pd
 import plotly.graph_objs as go
 import plotly.express as px
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
 
 DATA_NAME = 'Google'
 
@@ -85,11 +88,23 @@ def task_5():
     fig.show()
 
 
+def task_6():
+    print('\nTask #6')
+    data = load_data()
+    plt.plot(data['Date'], data['Close'], color='crimson', marker='o')
+    plt.title(f'Price of {DATA_NAME}', fontsize=20)
+    plt.ylabel('Price')
+    plt.xlabel('Date')
+    plt.grid(True)
+    plt.show()
+
+
 def main():
     task_1_2()
     task_3()
     task_4()
     task_5()
+    task_6()
 
 
 if __name__ == '__main__':
